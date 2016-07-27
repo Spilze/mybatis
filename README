@@ -49,8 +49,8 @@ org.apache.ibatis.datasource.unpooled
 
 9.事务
 org.apache.ibatis.transaction
-org.apache.ibatis.transaction.jdbc
-org.apache.ibatis.transaction.managed
+org.apache.ibatis.transaction.jdbc – 这个配置就是直接使用了 JDBC 的提交和回滚设置，它依赖于从数据源得到的连接来管理事务范围。
+org.apache.ibatis.transaction.managed – 这个配置几乎没做什么。它从来不提交或回滚一个连接，而是让容器来管理事务的整个生命周期（比如 JEE 应用服务器的上下文）。 默认情况下它会关闭连接，然而一些容器并不希望这样，因此需要将 closeConnection 属性设置为 false 来阻止它默认的关闭行为
 
 10.会话
 org.apache.ibatis.session
